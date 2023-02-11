@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
     "start:dev": "nodemon --watch src/ --exec \"yarn serve\" -e ts",
     "serve": "tsc && node ./bin/www",
     "compile": "tsc",
@@ -11,7 +10,9 @@
     "clean": "rm -rf dist && mkdir dist",
     "heroku-postbuild": "yarn clean && yarn serve",
     "lint": "eslint . --ext ts",
-    "lint:fix": "eslint . --ext ts --fix"
+    "lint:fix": "eslint . --ext ts --fix",
+    "start": "tsc -p ./tsconfig.json && node ./bin/www",
+    "build": "yarn compile"
   },
   "dependencies": {
     "@types/cors": "^2.8.10",
